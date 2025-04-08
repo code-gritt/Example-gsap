@@ -1,5 +1,4 @@
 "use client";
-
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Prompt } from "next/font/google";
@@ -12,10 +11,11 @@ const prompt = Prompt({
   subsets: ["latin"],
 });
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Home() {
   useEffect(() => {
+    // Register plugin inside useEffect to ensure it only runs on client
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
