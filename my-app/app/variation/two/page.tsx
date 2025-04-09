@@ -15,7 +15,6 @@ export default function Home() {
   useEffect(() => {
     // Register plugin inside useEffect to ensure it only runs on client
     gsap.registerPlugin(ScrollTrigger);
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
@@ -26,7 +25,7 @@ export default function Home() {
     });
 
     tl.fromTo(
-      ".dot",
+      ".flat-bottom-circle",
       {
         scale: 0,
         y: "100%",
@@ -45,7 +44,9 @@ export default function Home() {
     <SmoothScroll>
       <main className="relative min-h-screen overflow-x-hidden bg-[#ffffff] text-white">
         <div className="full hero h-screen w-full overflow-hidden">
-          <div className="dot absolute left-1/2 top-1/2 h-[142vmax] w-[142vmax] -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-[#113059]"></div>
+          <div className="flat-bottom-circle absolute left-1/2 top-1/2 h-[142vmax] w-[200vmax] -translate-x-1/2 -translate-y-1/2 scale-0 bg-[#ffc100]">
+            {/* This div creates the flat-bottom circle effect */}
+          </div>
           <h1
             className={`${prompt.className} absolute left-full top-1/2 m-0 -translate-y-1/2 whitespace-nowrap text-[8vmin] font-bold text-[#113059]`}
           >
