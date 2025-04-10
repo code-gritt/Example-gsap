@@ -1,4 +1,5 @@
 "use client";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Prompt } from "next/font/google";
@@ -13,17 +14,16 @@ const prompt = Prompt({
 
 export default function Home() {
   useEffect(() => {
-    // Register plugin inside useEffect to ensure it only runs on client
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
         start: "top top",
-        end: "+=800%", // Significantly increased for much slower animation
-        scrub: 0, // Increased smoothing factor for smoother movement
+        end: "+=1200%",
+        scrub: 0,
         pin: true,
-        markers: false, // Set to true for debugging
+        markers: false,
       },
     });
 
@@ -33,8 +33,8 @@ export default function Home() {
       {
         scale: 1,
         y: "-50%",
-        ease: "power2.inOut", // Changed to power2 for smoother easing
-        duration: 1.5, // Increased duration for slower animation
+        ease: "power1.inOut",
+        duration: 3,
       }
     )
       .to(
@@ -42,12 +42,12 @@ export default function Home() {
         {
           xPercent: -100,
           color: "white",
-          ease: "power2.inOut",
-          duration: 0.8, // Increased for slower text movement
+          ease: "power1.inOut",
+          duration: 1.2,
         },
-        0.3 // Delay the text animation slightly
+        0.5
       )
-      .set("body", { backgroundColor: "#113059" }, 0.8); // Delayed background change
+      .set("body", { backgroundColor: "#113059" }, 1.2);
   }, []);
 
   return (
