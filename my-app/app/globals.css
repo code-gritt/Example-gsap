@@ -41,3 +41,9 @@ body {
   background-repeat: no-repeat;
   z-index: -1;
 }
+
+.squiggly-text {
+  filter: url("#squiggly");
+  -webkit-text-stroke: 5px black;
+  color: #ffc100;
+}
